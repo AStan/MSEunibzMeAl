@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MSEunibzMeAl</string>
+    <string name="title_activity_display_events">DisplayEventsActivity</string>
 </resources>
