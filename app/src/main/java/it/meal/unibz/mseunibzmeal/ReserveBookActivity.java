@@ -7,23 +7,46 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class DisplayEventsActivity extends AppCompatActivity {
+public class ReserveBookActivity extends Activity {
 
-    @Override
+    private Bundle bundle;
+    private String BookId="";
+    private String BookName="";
+    private String StudentID="";
+    private EditText ReserveBookID,ReserveBookName;
+    private DatePicker ReserveDate;
+    private Button ReserveBook;
+    //database connection
+    public  String date;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_events2);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.reservebook);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        bundle = getIntent().getExtras();
+
+        BookId = bundle.getString("Book_ID");
+        BookName = bundle.getString("Book_Name");
+        StudentID=bundle.getString("User");
+        ReserveBookName=(EditText)findViewById(R.id.etReserveBookName);
+        ReserveBookID=(EditText)findViewById(R.id.etReserveBookID);
+        ReserveBookID.setText(BookId);
+        ReserveBookName.setText(BookName);
+        ReserveBook=(Button)findViewById(R.id.btnReserveBook);
+        ReserveBook.setOnClickListener(new clickHandler());
+
+        //connect to db
     }
+    public class clickHandler implements View.OnClickListener{
+        @Override
+        public void onClick(View view){
 
+            try{
+                //CREATE TABLE tbl_ReserveBook(BookID TEXT,StudentID TEXT,BookName Text,ReservedDate DATE
+                Toast.makeText(getApplicationContext(),"Book Reserverd",Toast.LENGTH_LONG).show();
+            }
+            catch (Exception ex){
+                Toast.makeText(getApplicationContext(),ex.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 }
