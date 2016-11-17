@@ -41,7 +41,7 @@ public class ReserveBookActivity extends Activity {
         public void onClick(View view){
 
             try{
-                //CREATE TABLE tbl_ReserveBook(BookID TEXT,StudentID TEXT,BookName Text,ReservedDate DATE
+                //CREATE TABLE to ReserveBook by book id, student id, book name and date
                 Toast.makeText(getApplicationContext(),"Book Reserverd",Toast.LENGTH_LONG).show();
             }
             catch (Exception ex){
