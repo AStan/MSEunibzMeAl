@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">MSEunibzMeAl</string>
     <string name="title_activity_display_events">DisplayEventsActivity</string>
-    <string name="title_activity_frontpage">FrontPageActivity</string>
+    <string name="title_activity_home_page">HomePageActivity</string>
+    <string name="title_activity_library">LibraryActivity</string>
+    <string name="title_activity_free_rooms">FreeRoomsActivity</string>
 
     <string name="button_signIn">Sign In</string>
-    <string name="button_rooms">Rooms</string>
+    <string name="button_rooms">Vacant Rooms</string>
     <string name="button_fyw">Find Your Way</string>
-    <string name="button_timetable">Timetable</string>
+    <string name="button_events">UNIBZ Events</string>
     <string name="button_library">Library</string>
+
 </resources>

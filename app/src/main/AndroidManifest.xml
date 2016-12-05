@@ -18,6 +18,18 @@
         <activity
             android:name=".DisplayEventsActivity"
             android:label="@string/title_activity_display_events"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HomePageActivity"
+            android:label="@string/title_activity_home_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LibraryActivity"
+            android:label="@string/title_activity_library"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FreeRoomsActivity"
+            android:label="@string/title_activity_free_rooms"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

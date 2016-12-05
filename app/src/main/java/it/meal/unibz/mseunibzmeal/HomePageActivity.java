@@ -1,18 +1,20 @@
 package it.meal.unibz.mseunibzmeal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
-public class FrontPageActivity extends AppCompatActivity implements View.OnClickListener {
+public class HomePageActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_frontpage);
+        setContentView(R.layout.content_home_page);
 
         Button signInButton= (Button) findViewById(R.id.signInButton);
         signInButton.setOnClickListener(this);
@@ -34,21 +36,26 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
 
         if (v.getId() == R.id.signInButton) {
-            Intent intent = new Intent(FrontPageActivity.this, SignInActivity.class);
+            //Intent intent = new Intent(HomePageActivity.this, SignInActivity.class);
+            Intent intent = new Intent(HomePageActivity.this, DisplayEventsActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.roomsButton) {
-            Intent intent = new Intent(FrontPageActivity.this, RoomsActivity.class);
+            //Intent intent = new Intent(HomePageActivity.this, RoomsActivity.class);
+            Intent intent = new Intent(HomePageActivity.this, DisplayEventsActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.fywButton) {
-            Intent intent = new Intent(FrontPageActivity.this, FindYourWayActivity.class);
+            //Intent intent = new Intent(HomePageActivity.this, FindYourWayActivity.class);
+            Intent intent = new Intent(HomePageActivity.this, DisplayEventsActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.timetableButton) {
-            Intent intent = new Intent(FrontPageActivity.this, TimetableActivity.class);
+            //Intent intent = new Intent(HomePageActivity.this, TimetableActivity.class);
+            Intent intent = new Intent(HomePageActivity.this, DisplayEventsActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.libraryButton) {
-            Intent intent = new Intent(FrontPageActivity.this, ViewBookActivity.class);
+            //Intent intent = new Intent(HomePageActivity.this, ViewBookActivity.class);
+            Intent intent = new Intent(HomePageActivity.this, DisplayEventsActivity.class);
             startActivity(intent);
 
+        }
     }
-}
 }

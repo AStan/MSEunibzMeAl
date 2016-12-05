@@ -1,11 +1,16 @@
 package it.meal.unibz.mseunibzmeal;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class ReserveBookActivity extends Activity {
 
@@ -20,18 +25,18 @@ public class ReserveBookActivity extends Activity {
     public  String date;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reservebook);
+        //setContentView(R.layout.reservebook);
 
         bundle = getIntent().getExtras();
 
         BookId = bundle.getString("Book_ID");
         BookName = bundle.getString("Book_Name");
         StudentID=bundle.getString("User");
-        ReserveBookName=(EditText)findViewById(R.id.etReserveBookName);
-        ReserveBookID=(EditText)findViewById(R.id.etReserveBookID);
+        //ReserveBookName=(EditText)findViewById(R.id.etReserveBookName);
+        //ReserveBookID=(EditText)findViewById(R.id.etReserveBookID);
         ReserveBookID.setText(BookId);
         ReserveBookName.setText(BookName);
-        ReserveBook=(Button)findViewById(R.id.btnReserveBook);
+        //ReserveBook=(Button)findViewById(R.id.btnReserveBook);
         ReserveBook.setOnClickListener(new clickHandler());
 
         //connect to db
