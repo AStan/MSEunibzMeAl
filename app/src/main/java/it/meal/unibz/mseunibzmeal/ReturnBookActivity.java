@@ -5,20 +5,29 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import static android.support.v7.appcompat.R.styleable.MenuItem;
 
 public class ReturnBookActivity extends AppCompatActivity {
 
     //db
     private ListView listviewreturnbook;
-    ArrayList<getter_setter> bookinfo=new ArrayList<getter_setter>();
+    //ArrayList<getter_setter> bookinfo=new ArrayList<getter_setter>();
     ArrayList<String> allBookId=new ArrayList<String>();
     ArrayAdapter<String> adapter;
     private TextView bookname,reservedate;//,studentname;
     private String bookID;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_returnbook);
+        setContentView(R.layout.activity_return_book2);
         try{
             listviewreturnbook=(ListView)findViewById(R.id.listViewStudentReturn);
             //open connection to db
@@ -50,7 +59,7 @@ public class ReturnBookActivity extends AppCompatActivity {
         return true;
     }
     @Override
-    public void onCreateContextMenu (ContextMenu menu,View v,ContextMenu.ContextMenuInfo menuInfo){
+    public void onCreateContextMenu (ContextMenu menu,View v, ContextMenu.ContextMenuInfo menuInfo){
         super.onCreateContextMenu(menu, v, menuInfo);
         getMenuInflater().inflate(R.menu.menu_returnbook, menu);
     }
