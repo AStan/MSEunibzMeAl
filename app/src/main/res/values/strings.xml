@@ -10,5 +10,6 @@
     <string name="button_fyw">Find Your Way</string>
     <string name="button_events">UNIBZ Events</string>
     <string name="button_library">Library</string>
+    <string name="title_activity_book_details">BookDetailsActivity</string>
 
 </resources>

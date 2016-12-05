@@ -36,25 +36,36 @@
         android:layout_marginLeft="27dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="123dp"
-        android:id="@+id/libraryView" />
+        android:id="@+id/libraryView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/searchView"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="65dp"
-        android:layout_below="@+id/libraryView" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Search for Books"
+        android:ems="10"
+        android:layout_below="@+id/libraryView"
+        android:layout_alignLeft="@+id/libraryView"
+        android:layout_alignStart="@+id/libraryView"
+        android:layout_marginTop="60dp"
+        android:id="@+id/searchBooks" />
+
+    <Button
+        android:text="Search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/searchBooks"
+        android:layout_toRightOf="@+id/searchBooks"
+        android:layout_toEndOf="@+id/searchBooks"
+        android:id="@+id/searchButton" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Advanced Search"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="22dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/searchBooks"
+        android:layout_alignLeft="@+id/searchBooks"
+        android:layout_alignStart="@+id/searchBooks" />
 
 </RelativeLayout>

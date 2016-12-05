@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button fywButton = (Button) findViewById(R.id.fywButton);
         fywButton.setOnClickListener(this);
 
-        Button timetableButton = (Button) findViewById(R.id.timetableButton);
+        Button timetableButton = (Button) findViewById(R.id.eventsButton);
         timetableButton.setOnClickListener(this);
 
         Button libraryButton = (Button) findViewById(R.id.libraryButton);
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Intent intent = new Intent(HomePageActivity.this, FindYourWayActivity.class);
             Intent intent = new Intent(MainActivity.this, DisplayEventsActivity.class);
             startActivity(intent);
-        } else if (v.getId() == R.id.timetableButton) {
+        } else if (v.getId() == R.id.eventsButton) {
             //Intent intent = new Intent(HomePageActivity.this, TimetableActivity.class);
             Intent intent = new Intent(MainActivity.this, DisplayEventsActivity.class);
             startActivity(intent);
