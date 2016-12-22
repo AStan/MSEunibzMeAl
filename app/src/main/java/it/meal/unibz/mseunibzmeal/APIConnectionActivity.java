@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class APIConnectionActivity {
 
-    public JSONArray GetBooks() {
+    /*public JSONArray GetBooks() {
         String url = "https://api-na.hosted.exlibrisgroup.com/primo/v1/pnxs?vid=UNIBZ&scope=All&q=any,contains,Hello&apikey=l7xx53f22519810d4f56a21caceb0fc95de4";
         HttpEntity httpEntity = null;
         try {
@@ -44,4 +44,4 @@ public class APIConnectionActivity {
         Log.e("JSONARRAY : ", String.valueOf(jsonArray));
 
         return jsonArray;
-    }
+ */   }

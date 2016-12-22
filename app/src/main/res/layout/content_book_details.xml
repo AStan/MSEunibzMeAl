@@ -32,7 +32,7 @@
             android:layout_marginTop="20dp"
             android:layout_weight="2.5"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/textView" />
+            android:id="@+id/book_name" />
 
         <TextView
             android:text="Author Name"
@@ -41,7 +41,7 @@
             android:layout_marginTop="20dp"
             android:layout_weight="2.5"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/textView2" />
+            android:id="@+id/author_name" />
 
         <TextView
             android:text="Availability"
@@ -50,7 +50,7 @@
             android:layout_marginTop="20dp"
             android:layout_weight="2.5"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/textView3" />
+            android:id="@+id/availability" />
 
     </LinearLayout>
     <ScrollView
