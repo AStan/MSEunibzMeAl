@@ -34,6 +34,10 @@
         <activity
             android:name=".BookDetailsActivity"
             android:label="@string/title_activity_book_details"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".APIConnectionActivity"
+            android:label="@string/title_activity_apiconnection"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
