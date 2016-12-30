@@ -60,16 +60,14 @@ public class BookDetailsActivity extends AppCompatActivity {
             myURLConnection.connect();
             int status = myURLConnection.getResponseCode();
 
-            InputStream in = myURLConnection.getInputStream();
-            InputStreamReader isw = new InputStreamReader(in);
-            //BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
+            StringBuilder stringBuilder = new StringBuilder();
+            String data = null;
 
-            int data = isw.read();
-            while (data != -1) {
-                char current = (char) data;
-                data = isw.read();
-                System.out.print(current);
+            if (myURLConnection.getResponseCode()==201 || myURLConnection.getResponseCode()==200) {
+                //get json object
             }
+
         }
         catch (Exception e) {
             // new URL() failed

@@ -26,7 +26,7 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
 
     public void onClick(View v) {
         EditText searchValue   = (EditText)findViewById(R.id.searchBooks);
-        TextView textView = (TextView)findViewById(R.id.textView3);
+        //TextView textView = (TextView)findViewById(R.id.textView3);
 
 
 
@@ -35,7 +35,7 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
             Intent intent = new Intent(LibraryActivity.this, BookDetailsActivity.class);
 
             String searchV = searchValue.getText().toString();
-            textView.setText(searchV);
+            //textView.setText(searchV);
 
             //perform search with this query
             //then, get the list (as JSON?) and pass it to BookDetailsActivity, creating the list view
