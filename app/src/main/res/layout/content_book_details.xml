@@ -53,6 +53,7 @@
             android:id="@+id/availability" />
 
     </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -65,4 +66,10 @@
             android:stretchColumns="0,1,2">
         </TableLayout>
     </ScrollView>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView" />
 </LinearLayout>

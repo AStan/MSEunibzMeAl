@@ -6,6 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 public class FreeRoomsActivity extends AppCompatActivity {
 
@@ -15,6 +17,10 @@ public class FreeRoomsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_free_rooms);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        WebView myWebView = (WebView) findViewById(R.id.webviewRooms);
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        myWebView.loadUrl("http://aws.unibz.it/risweb/timetable.aspx");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

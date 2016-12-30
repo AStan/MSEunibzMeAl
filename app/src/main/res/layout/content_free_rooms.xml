@@ -13,67 +13,11 @@
     tools:context="it.meal.unibz.mseunibzmeal.FreeRoomsActivity"
     tools:showIn="@layout/activity_free_rooms">
 
-    <Button
-        android:text="A"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:id="@+id/Abutton"
-        android:layout_alignParentTop="true"
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:id="@+id/webviewRooms" />
 
-    <Button
-        android:text="D"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Dbutton"
-        android:layout_below="@+id/Bbutton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="C"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Cbutton"
-        android:layout_alignTop="@+id/Bbutton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:text="F"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Fbutton"
-        android:layout_below="@+id/Cbutton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:text="B"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Bbutton"
-        android:layout_alignBaseline="@+id/Abutton"
-        android:layout_alignBottom="@+id/Abutton"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="E"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Ebutton"
-        android:layout_below="@+id/Bbutton"
-        android:layout_alignLeft="@+id/Bbutton"
-        android:layout_alignStart="@+id/Bbutton" />
-
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:id="@+id/datePicker"
-        android:layout_below="@+id/Dbutton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 </RelativeLayout>
