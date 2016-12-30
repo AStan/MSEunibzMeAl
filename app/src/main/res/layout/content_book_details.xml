@@ -12,7 +12,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="it.meal.unibz.mseunibzmeal.BookDetailsActivity"
-    tools:showIn="@layout/activity_book_details">
+    tools:showIn="@layout/activity_book_details"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,54 +23,16 @@
         android:textStyle="bold"
         android:layout_marginTop="20dp"/>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:text="Book Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_weight="2.5"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/book_name" />
-
-        <TextView
-            android:text="Author Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_weight="2.5"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/author_name" />
-
-        <TextView
-            android:text="Availability"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_weight="2.5"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/availability" />
-
-    </LinearLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollView"
-        >
-        <TableLayout
+        android:layout_weight="5.35">
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/tblBookList"
-            android:stretchColumns="0,1,2">
-        </TableLayout>
+            android:id="@+id/listBooks">
+        </ListView>
     </ScrollView>
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView" />
 </LinearLayout>

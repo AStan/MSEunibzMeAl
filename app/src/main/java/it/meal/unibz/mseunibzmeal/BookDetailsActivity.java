@@ -12,6 +12,8 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -42,6 +44,14 @@ public class BookDetailsActivity extends AppCompatActivity {
         String searchValue = bundle.getString("Hello"); //search key
 
         textV.setText(searchValue);
+    }
+
+    private void sendGet() throws Exception {
+
+        TextView textV = (TextView)findViewById(R.id.textView);
+        Bundle bundle = getIntent().getExtras();
+        String searchValue = bundle.getString("Hello"); //search key
+        textV.setText(searchValue);
 
         URL myURL;
         HttpURLConnection myURLConnection = null;
@@ -52,20 +62,24 @@ public class BookDetailsActivity extends AppCompatActivity {
             myURL = new URL("https://api-na.hosted.exlibrisgroup.com/primo/v1/pnxs?vid=UNIBZ&scope=All&q=any,contains,"+searchValue+"&apikey="+apikey);
             myURLConnection = (HttpURLConnection) myURL.openConnection();
             myURLConnection.setRequestMethod("GET");
-            /*myURLConnection.setRequestProperty("Content-length", "0");
-            myURLConnection.setUseCaches(false);
-            myURLConnection.setAllowUserInteraction(false);
-            myURLConnection.setConnectTimeout(100000);
-            myURLConnection.setReadTimeout(100000);*/
             myURLConnection.connect();
-            int status = myURLConnection.getResponseCode();
 
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
             StringBuilder stringBuilder = new StringBuilder();
-            String data = null;
+            String data;
+
+            int status = myURLConnection.getResponseCode();
+            JSONObject jsonObject = new JSONObject();
+
+            while ((data = bufferedReader.readLine()) != null) {
+                stringBuilder.append(data);
+            }
+            bufferedReader.close();
+
 
             if (myURLConnection.getResponseCode()==201 || myURLConnection.getResponseCode()==200) {
                 //get json object
+                textV.setText(data);
             }
 
         }
