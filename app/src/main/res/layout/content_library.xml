@@ -68,5 +68,4 @@
         android:layout_alignLeft="@+id/searchBooks"
         android:layout_alignStart="@+id/searchBooks" />
 
-
 </RelativeLayout>

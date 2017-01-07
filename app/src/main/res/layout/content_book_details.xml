@@ -15,6 +15,14 @@
     tools:showIn="@layout/activity_book_details"
     android:weightSum="1">
 
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2" />
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,11 +36,19 @@
         android:layout_height="match_parent"
         android:id="@+id/scrollView"
         android:layout_weight="5.35">
-        <ListView
+
+        <TextView
+            android:text="TextView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/listBooks">
-        </ListView>
+            android:layout_height="wrap_content"
+            android:id="@+id/data" />
+
     </ScrollView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listBooks">
+    </ListView>
 
 </LinearLayout>
