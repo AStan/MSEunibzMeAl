@@ -128,15 +128,4 @@ public class BookDetailsActivity extends AppCompatActivity {
             jsonString = s;
         }
     }
-
-    public void parseJSON(View view) {
-        if(jsonString == null) {
-            Toast.makeText(getApplicationContext(), "First Get JSON", Toast.LENGTH_LONG).show();
-        }
-        else {
-            //Intent intent = new Intent(this, BookDetailsActivity.class);
-            //intent.putExtra("json_data", jsonString);
-            //startActivity(intent);
-        }
-    }
 }
