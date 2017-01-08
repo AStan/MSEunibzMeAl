@@ -44,6 +44,8 @@ public class BookDetailsActivity extends AppCompatActivity {
         listView=(ListView)findViewById(R.id.listBooks);
 
         textView = (TextView)findViewById(R.id.data);
+        textView.setTextIsSelectable(true);
+
         button=(Button)findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -98,6 +100,7 @@ public class BookDetailsActivity extends AppCompatActivity {
 
             bookDataJsonStr = stringBuffer.toString();
             return bookDataJsonStr;
+
         }
         catch (Exception e) {
             // new URL() failed
