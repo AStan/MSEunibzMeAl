@@ -1,5 +1,6 @@
 package it.meal.unibz.mseunibzmeal;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -7,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,19 +29,19 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class BookDetailsActivity extends AppCompatActivity {
-    private EditText BookName;
-    private EditText AuthorName;
-    private EditText Availability;
-    private TableLayout tableLayout;
+import static android.R.attr.button;
 
-    private int bookID;
+public class BookDetailsActivity extends AppCompatActivity {
+    ListView listView;
+    TextView textView;
+    Button button;
+
+    String JsonStr = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
-<<<<<<< HEAD
         listView=(ListView)findViewById(R.id.listBooks);
 
         textView = (TextView)findViewById(R.id.data);
@@ -49,30 +52,27 @@ public class BookDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new FetchBookData().execute();
+                textView.setText(JsonStr);
             }
         });
-=======
-        tableLayout=(TableLayout)findViewById(R.id.tblBookList);
->>>>>>> parent of 5b849d2... json implementation
-
-        TextView textV = (TextView)findViewById(R.id.textView);
-
-        Bundle bundle = getIntent().getExtras();
-
-        String searchValue = bundle.getString("Hello"); //search key
-
-        textV.setText(searchValue);
     }
 
-    private void sendGet() throws Exception {
+    private class FetchBookData extends AsyncTask <Void, Void, String> {
 
-        TextView textV = (TextView)findViewById(R.id.textView);
-        Bundle bundle = getIntent().getExtras();
-        String searchValue = bundle.getString("Hello"); //search key
-        textV.setText(searchValue);
+        @Override
+        protected String doInBackground(Void... params) {
+            //TextView textV = (TextView)findViewById(R.id.textView);
+            Bundle bundle = getIntent().getExtras();
+            String searchValue = bundle.getString("Hello"); //search key
+            //textV.setText(searchValue);
 
-        URL myURL;
-        HttpURLConnection myURLConnection = null;
+            URL myURL;
+            HttpURLConnection myURLConnection = null;
+            BufferedReader bufferedReader = null;
+
+            //Will contain raw JSON response as string
+            String bookDataJsonStr = null;
+
         try {
 
             String apikey = "l7xx53f22519810d4f56a21caceb0fc95de4";
@@ -82,40 +82,37 @@ public class BookDetailsActivity extends AppCompatActivity {
             myURLConnection.setRequestMethod("GET");
             myURLConnection.connect();
 
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
-            StringBuilder stringBuilder = new StringBuilder();
+            InputStream inputStream = myURLConnection.getInputStream();
+            StringBuffer stringBuffer = new StringBuffer();
+
+            if (inputStream == null) {
+                return null;
+            }
+            bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
             String data;
-
-            int status = myURLConnection.getResponseCode();
-            JSONObject jsonObject = new JSONObject();
-
             while ((data = bufferedReader.readLine()) != null) {
-                stringBuilder.append(data);
-            }
-            bufferedReader.close();
-
-
-            if (myURLConnection.getResponseCode()==201 || myURLConnection.getResponseCode()==200) {
-                //get json object
-                textV.setText(data);
+                stringBuffer.append(data + "\n");
             }
 
-<<<<<<< HEAD
+            if (stringBuffer.length() == 0) {
+                //Empty Stream, no need to parse
+                return null;
+            }
+
             bookDataJsonStr = stringBuffer.toString();
             return bookDataJsonStr;
 
-=======
->>>>>>> parent of 5b849d2... json implementation
         }
         catch (Exception e) {
             // new URL() failed
-            e.printStackTrace();
+            Log.e("PlaceholderFragment", "Error", e);
+            return new String("Exception: " + e.getMessage());
         }
         finally {
             if(myURLConnection != null) {
                 myURLConnection.disconnect();
             }
-<<<<<<< HEAD
             if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
@@ -134,9 +131,7 @@ public class BookDetailsActivity extends AppCompatActivity {
             textView.setText(s);
             Log.i("json", s);
 
-            //jsonString = s;
-=======
->>>>>>> parent of 5b849d2... json implementation
+            JsonStr = s;
         }
     }
 }
