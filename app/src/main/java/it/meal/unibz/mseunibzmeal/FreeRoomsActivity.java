@@ -17,10 +17,10 @@ public class FreeRoomsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_free_rooms);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        WebView myWebView = (WebView) findViewById(R.id.webviewRooms);
-        WebSettings webSettings = myWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        myWebView.loadUrl("http://aws.unibz.it/risweb/timetable.aspx");
+//        WebView myWebView = (WebView) findViewById(R.id.webviewRooms);
+//        WebSettings webSettings = myWebView.getSettings();
+//        webSettings.setJavaScriptEnabled(true);
+//        myWebView.loadUrl("http://aws.unibz.it/risweb/timetable.aspx");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
