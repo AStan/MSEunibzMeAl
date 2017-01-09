@@ -34,6 +34,7 @@ import static android.R.attr.button;
 public class BookDetailsActivity extends AppCompatActivity {
     ListView listView;
     TextView textView;
+    TextView textView2;
     Button button;
 
     String JsonStr = null;
@@ -42,17 +43,18 @@ public class BookDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
-        listView=(ListView)findViewById(R.id.listBooks);
 
-        textView = (TextView)findViewById(R.id.data);
-        textView.setTextIsSelectable(true);
+        listView = (ListView) findViewById(R.id.listBooks);
 
-        button=(Button)findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener(){
+        textView = (TextView) findViewById(R.id.data);
+        textView2 = (TextView) findViewById(R.id.data2);
+        //textView.setTextIsSelectable(true);
+
+        button = (Button) findViewById(R.id.button2);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new FetchBookData().execute();
-                textView.setText(JsonStr);
             }
         });
     }
@@ -73,65 +75,67 @@ public class BookDetailsActivity extends AppCompatActivity {
             //Will contain raw JSON response as string
             String bookDataJsonStr = null;
 
-        try {
+            try {
 
-            String apikey = "l7xx53f22519810d4f56a21caceb0fc95de4";
+                String apikey = "l7xx53f22519810d4f56a21caceb0fc95de4";
 
-            myURL = new URL("https://api-na.hosted.exlibrisgroup.com/primo/v1/pnxs?vid=UNIBZ&scope=All&q=any,contains,"+searchValue+"&apikey="+apikey);
-            myURLConnection = (HttpURLConnection) myURL.openConnection();
-            myURLConnection.setRequestMethod("GET");
-            myURLConnection.connect();
+                myURL = new URL("https://api-na.hosted.exlibrisgroup.com/primo/v1/pnxs?vid=UNIBZ&scope=All&q=any,contains," + searchValue + "&apikey=" + apikey);
+                myURLConnection = (HttpURLConnection) myURL.openConnection();
+                myURLConnection.setRequestMethod("GET");
+                myURLConnection.connect();
 
-            InputStream inputStream = myURLConnection.getInputStream();
-            StringBuffer stringBuffer = new StringBuffer();
+                InputStream inputStream = myURLConnection.getInputStream();
+                StringBuffer stringBuffer = new StringBuffer();
 
-            if (inputStream == null) {
-                return null;
-            }
-            bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                if (inputStream == null) {
+                    return null;
+                }
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
-            String data;
-            while ((data = bufferedReader.readLine()) != null) {
-                stringBuffer.append(data + "\n");
-            }
+                String data;
+                while ((data = bufferedReader.readLine()) != null) {
+                    stringBuffer.append(data + "\n");
+                }
 
-            if (stringBuffer.length() == 0) {
-                //Empty Stream, no need to parse
-                return null;
-            }
+                if (stringBuffer.length() == 0) {
+                    //Empty Stream, no need to parse
+                    return null;
+                }
 
-            bookDataJsonStr = stringBuffer.toString();
-            return bookDataJsonStr;
+                bookDataJsonStr = stringBuffer.toString();
+                return bookDataJsonStr;
 
-        }
-        catch (Exception e) {
-            // new URL() failed
-            Log.e("PlaceholderFragment", "Error", e);
-            return new String("Exception: " + e.getMessage());
-        }
-        finally {
-            if(myURLConnection != null) {
-                myURLConnection.disconnect();
-            }
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                }catch (final IOException e) {
-                    Log.e("PlaceholderFragment", "Error closing stream", e);
-                    return new String("Exception: " + e.getMessage());
+            } catch (Exception e) {
+                // new URL() failed
+                //Log.e("PlaceholderFragment", "Error", e);
+                return new String("Exception: " + e.getMessage());
+            } finally {
+                if (myURLConnection != null) {
+                    myURLConnection.disconnect();
+                }
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (final IOException e) {
+                        //Log.e("PlaceholderFragment", "Error closing stream", e);
+                        return new String("Exception: " + e.getMessage());
+                    }
                 }
             }
         }
-    }
 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
-            textView.setText(s);
+            JsonStr = s.toString();
+            textView.setText(JsonStr);
+            textView2.setText(s);
             Log.i("json", s);
 
-            JsonStr = s;
+
+
         }
     }
 }
+
