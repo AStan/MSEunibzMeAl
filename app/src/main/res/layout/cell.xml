@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/date"
+        android:gravity="center_vertical"
+        android:layout_alignParentEnd="true"
+        android:paddingEnd="10dp"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/availability"
+        android:gravity="center_vertical"
+        android:layout_alignParentEnd="true"
+        android:paddingEnd="10dp"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/creator"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/title"
+        android:gravity="center_vertical"
+        android:layout_alignParentEnd="true"
+        android:paddingEnd="10dp"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/callNumber"
+        android:gravity="center_vertical"
+        android:layout_alignParentEnd="true"
+        android:paddingEnd="10dp"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/type"
+        android:gravity="center_vertical"
+        android:layout_alignParentEnd="true"
+        android:paddingEnd="10dp"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp" />
+</LinearLayout>
