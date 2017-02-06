@@ -1,6 +1,8 @@
 package it.meal.unibz.mseunibzmeal;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -48,6 +50,7 @@ import static android.R.attr.button;
         public ListView listV;
 
         public TextView tv;
+        public Button backButton;
         //public static String url = "http://api.androidhive.info/contacts/";
         //public String url = "https://api-na.hosted.exlibrisgroup.com/primo/v1/pnxs?vid=UNIBZ&scope=All&q=any,contains, " + searchValue +"&apikey=l7xx53f22519810d4f56a21caceb0fc95de4"; //was static
         ArrayList<HashMap<String, String>> countryList;
@@ -61,6 +64,16 @@ import static android.R.attr.button;
 
             listV = (ListView)findViewById(R.id.listBooks);
 
+            backButton = (Button)findViewById(R.id.backButton);
+            backButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    //Intent intent = new Intent(this, YourMainActivity.class);
+                    //startActivity(intent);
+                    finish();
+                }
+            });
             new FetchBookData().execute();
         }
 
@@ -112,20 +125,28 @@ import static android.R.attr.button;
                             String date;
 
                             if (c.has("date")){
-                                date = c.getString("date");
+                                date = "DATE: " + c.getString("date");
                             } else {
-                                date = "Unspecified";
+                                date = "DATE: " + "Unspecified";
                             }
 
                             String creator;
                             if (c.has("creator")){
-                                creator = c.getString("creator");
+                                creator = "CREATOR: " + c.getString("creator");
                             } else {
-                                creator = "Unspecified";
+                                creator = "CREATOR: " +  "Unspecified";
                             }
 
-                            String title = c.getString("title");
-                            String type = c.getString("@TYPE");
+                            String title = "TITLE: " + c.getString("title");
+                            String type = "TYPE: " + c.getString("@TYPE");
+
+
+                            String availability;
+                            if (c.has("availability")) {
+                                availability = "AVAILABILITY: " + c.getString("availability");
+                            } else {
+                                availability = "AVAILABILITY: " + "Unspecified";
+                            }
 
                             HashMap<String, String> contact = new HashMap<>();
 //                        contact.put("id", id);
@@ -135,6 +156,7 @@ import static android.R.attr.button;
                             contact.put("creator", creator);
                             contact.put("title", title);
                             contact.put("@TYPE", type);
+                            contact.put("availability", availability);
 
                             countryList.add(contact);
                             Log.e("CountryList", countryList.toString());
@@ -174,6 +196,8 @@ import static android.R.attr.button;
                 ListAdapter adapter = new SimpleAdapter(BookDetailsActivity.this, countryList, R.layout.cell, new String[]{"creator", "title"}, new int[]{R.id.creator, R.id.title});
 
                 listV.setAdapter(adapter);
+
+                //tv.setTextColor(Color.GREEN);
             }
 
         }

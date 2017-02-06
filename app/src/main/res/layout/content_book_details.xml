@@ -15,9 +15,17 @@
     tools:showIn="@layout/activity_book_details"
     android:weightSum="1">
 
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Go Back"
+        android:background="@drawable/button_state"
+        android:onClick="onClick"/>
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:id="@+id/listBooks"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
