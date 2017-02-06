@@ -116,14 +116,8 @@ import static android.R.attr.button;
                         for (int i = 0; i < contacts.length(); i++) {
                             JSONObject c = contacts.getJSONObject(i);
 
-//                        String id = c.getString("id");
-//                        String name = c.getString("name");
-//                        String email = c.getString("email");
-
                             //date, availability, creator,title, callNumber, @TYPE
-
                             String date;
-
                             if (c.has("date")){
                                 date = "DATE: " + c.getString("date");
                             } else {
@@ -140,7 +134,6 @@ import static android.R.attr.button;
                             String title = "TITLE: " + c.getString("title");
                             String type = "TYPE: " + c.getString("@TYPE");
 
-
                             String availability;
                             if (c.has("availability")) {
                                 availability = "AVAILABILITY: " + c.getString("availability");
@@ -149,9 +142,6 @@ import static android.R.attr.button;
                             }
 
                             HashMap<String, String> contact = new HashMap<>();
-//                        contact.put("id", id);
-//                        contact.put("name", name);
-//                        contact.put("email", email);
                             contact.put("date", date);
                             contact.put("creator", creator);
                             contact.put("title", title);
@@ -193,7 +183,7 @@ import static android.R.attr.button;
                     progressDialog.dismiss();
 
                 //ListAdapter adapter = new SimpleAdapter(MainActivity.this, countryList, R.layout.cell, new String[]{"name", "email"}, new int[]{R.id.creator, R.id.title});
-                ListAdapter adapter = new SimpleAdapter(BookDetailsActivity.this, countryList, R.layout.cell, new String[]{"creator", "title"}, new int[]{R.id.creator, R.id.title});
+                ListAdapter adapter = new SimpleAdapter(BookDetailsActivity.this, countryList, R.layout.cell, new String[]{"title", "creator", "date", "type"}, new int[]{R.id.title, R.id.creator, R.id.date, R.id.type});
 
                 listV.setAdapter(adapter);
 

@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //setContentView(R.layout.activity_main);
         setContentView(R.layout.content_home_page);
 
-        Button signInButton= (Button) findViewById(R.id.signInButton);
+        Button signInButton= (Button) findViewById(R.id.mensaCamButton);
         signInButton.setOnClickListener(this);
 
         Button roomsButton = (Button) findViewById(R.id.roomsButton);
@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onClick(View v) {
 
-        if (v.getId() == R.id.signInButton) {
+        if (v.getId() == R.id.mensaCamButton) {
             //Intent intent = new Intent(HomePageActivity.this, SignInActivity.class);
-            Intent intent = new Intent(MainActivity.this, DisplayEventsActivity.class);
+            Intent intent = new Intent(MainActivity.this, MensaCamActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.roomsButton) {
             //Intent intent = new Intent(HomePageActivity.this, RoomsActivity.class);
