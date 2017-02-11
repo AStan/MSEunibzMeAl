@@ -26,29 +26,6 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_mensaCam"
-        android:id="@+id/mensaCamButton"
-        android:background="#000000"
-        android:textColor="#ffffff"/>
-
-    <Button
-        android:layout_marginTop="85dp"
-        android:layout_below="@+id/mensaCamButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_rooms"
-        android:id="@+id/roomsButton"
-        android:background="#000000"
-        android:textColor="#ffffff"/>
-
-    <Button
         android:layout_marginRight="23dp"
         android:layout_marginEnd="23dp"
         android:layout_below="@+id/mensaCamButton"
@@ -84,6 +61,29 @@
         android:id="@+id/libraryButton"
         android:background="#000000"
         android:textColor="#ffffff"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_mensaCam"
+        android:id="@+id/mensaCamButton"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/roomsButton"
+        android:layout_toEndOf="@+id/roomsButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_rooms"
+        android:id="@+id/roomsButton"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:layout_alignBaseline="@+id/fywButton"
+        android:layout_alignBottom="@+id/fywButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
