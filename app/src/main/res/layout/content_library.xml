@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_library"
@@ -13,9 +13,44 @@
     tools:context="it.meal.unibz.mseunibzmeal.LibraryActivity"
     tools:showIn="@layout/activity_library">
 
-    <ImageView
+    <Button
+        android:text="Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/searchBooks"
+        android:layout_toRightOf="@+id/searchBooks"
+        android:layout_toEndOf="@+id/searchBooks"
+        android:id="@+id/searchButton"
+        android:layout_x="250dp"
+        android:layout_y="206dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Search for Books"
+        android:ems="10"
+        android:layout_below="@+id/libraryView"
+        android:layout_alignLeft="@+id/libraryView"
+        android:layout_alignStart="@+id/libraryView"
+        android:layout_marginTop="60dp"
+        android:id="@+id/searchBooks"
+        android:layout_x="25dp"
+        android:layout_y="213dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Advanced Search"
+        android:layout_below="@+id/searchBooks"
+        android:layout_alignLeft="@+id/searchBooks"
+        android:layout_alignStart="@+id/searchBooks"
+        android:layout_x="30dp"
+        android:layout_y="253dp" />
+
+    <ImageView
+        android:layout_width="127dp"
+        android:layout_height="123dp"
         app:srcCompat="@drawable/unibz_logo"
         android:id="@+id/imageView"
         android:layout_alignParentBottom="true"
@@ -24,7 +59,9 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="375dp"
         android:layout_alignRight="@+id/libraryView"
-        android:layout_alignEnd="@+id/libraryView" />
+        android:layout_alignEnd="@+id/libraryView"
+        android:layout_x="18dp"
+        android:layout_y="22dp" />
 
     <TextView
         android:text="LIBRARY"
@@ -37,36 +74,9 @@
         android:layout_marginStart="27dp"
         android:layout_marginTop="123dp"
         android:id="@+id/libraryView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Search for Books"
-        android:ems="10"
-        android:layout_below="@+id/libraryView"
-        android:layout_alignLeft="@+id/libraryView"
-        android:layout_alignStart="@+id/libraryView"
-        android:layout_marginTop="60dp"
-        android:id="@+id/searchBooks" />
-
-    <Button
-        android:text="Search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/searchBooks"
-        android:layout_toRightOf="@+id/searchBooks"
-        android:layout_toEndOf="@+id/searchBooks"
-        android:id="@+id/searchButton" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Advanced Search"
-        android:layout_below="@+id/searchBooks"
-        android:layout_alignLeft="@+id/searchBooks"
-        android:layout_alignStart="@+id/searchBooks" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:layout_x="200dp"
+        android:layout_y="65dp" />
 
 
-</RelativeLayout>
+</AbsoluteLayout>
