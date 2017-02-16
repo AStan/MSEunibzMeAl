@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_home_page"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -14,76 +15,74 @@
     tools:context="it.meal.unibz.mseunibzmeal.HomePageActivity"
     tools:showIn="@layout/activity_home_page">
 
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:padding="6dip" >
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/background_bottom"
-        android:adjustViewBounds="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_marginRight="23dp"
-        android:layout_marginEnd="23dp"
-        android:layout_below="@+id/mensaCamButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="22dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_fyw"
-        android:id="@+id/fywButton"
-        android:background="@drawable/mybutton"
-        android:textColor="#ffffff"/>
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="horizontal" >
 
     <Button
-        android:layout_marginTop="92dp"
-        android:layout_below="@+id/roomsButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_events"
-        android:id="@+id/eventsButton"
-        android:background="#000000"
-        android:textColor="#ffffff"/>
+    android:id="@+id/eventsButton"
+    style="@style/HomeButton"
+    android:drawableTop="@drawable/power_connection_indicator"
+    android:onClick="onButtonClicker"
+    android:text="@string/button_events" />
 
     <Button
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/fywButton"
-        android:layout_alignEnd="@+id/fywButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_library"
-        android:id="@+id/libraryButton"
-        android:background="#000000"
-        android:textColor="#ffffff"/>
+    android:id="@+id/fywButton"
+    style="@style/HomeButton"
+    android:drawableTop="@drawable/map_symbol"
+    android:onClick="onButtonClicker"
+    android:text="@string/button_fyw" />
+</LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_mensaCam"
-        android:id="@+id/mensaCamButton"
-        android:background="#000000"
-        android:textColor="#ffffff"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/roomsButton"
-        android:layout_toEndOf="@+id/roomsButton" />
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"    android:orientation="horizontal" >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_rooms"
-        android:id="@+id/roomsButton"
-        android:background="#000000"
-        android:textColor="#ffffff"
-        android:layout_alignBaseline="@+id/fywButton"
-        android:layout_alignBottom="@+id/fywButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+<Button
+    android:id="@+id/mensaCamButton"
+    style="@style/HomeButton"
+    android:drawableTop="@drawable/hangouts_videocall_button"
+    android:onClick="onButtonClicker"
+    android:text="@string/button_mensaCam" />
 
+<Button
+    android:id="@+id/libraryButton"
+    style="@style/HomeButton"
+    android:drawableTop="@drawable/bookmark_button"
+    android:onClick="onButtonClicker"
+    android:text="@string/button_library" />
+    </LinearLayout>
 
-</RelativeLayout>
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="horizontal" >
+
+<Button
+    android:id="@+id/roomsButton"
+    style="@style/HomeButton"
+    android:drawableTop="@drawable/web_server"
+    android:onClick="onButtonClicker"
+    android:text="@string/button_rooms" />
+
+<Button
+    android:id="@+id/other"
+    style="@style/HomeButton"
+    android:drawableTop="@drawable/map_symbol"
+    android:onClick="onButtonClicker"
+    android:text="Other" />
+    </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
