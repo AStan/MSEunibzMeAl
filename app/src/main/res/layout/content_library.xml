@@ -21,6 +21,7 @@
         android:layout_toRightOf="@+id/searchBooks"
         android:layout_toEndOf="@+id/searchBooks"
         android:id="@+id/searchButton"
+        android:onClick="onClick"
         android:layout_x="250dp"
         android:layout_y="206dp" />
 
@@ -51,7 +52,7 @@
     <ImageView
         android:layout_width="127dp"
         android:layout_height="123dp"
-        app:srcCompat="@drawable/unibz_logo"
+        app:srcCompat="@drawable/web_server"
         android:id="@+id/imageView"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"

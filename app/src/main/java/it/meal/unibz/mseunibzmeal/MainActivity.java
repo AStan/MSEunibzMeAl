@@ -14,8 +14,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //setContentView(R.layout.activity_main);
         setContentView(R.layout.content_home_page);
 
-        Button signInButton= (Button) findViewById(R.id.mensaCamButton);
-        signInButton.setOnClickListener(this);
+        Button mensaCamButton= (Button) findViewById(R.id.mensaCamButton);
+        mensaCamButton.setOnClickListener(this);
 
         Button roomsButton = (Button) findViewById(R.id.roomsButton);
         roomsButton.setOnClickListener(this);
@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button libraryButton = (Button) findViewById(R.id.libraryButton);
         libraryButton.setOnClickListener(this);
+
+        Button other = (Button) findViewById(R.id.other);
+        other.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -52,7 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Intent intent = new Intent(HomePageActivity.this, ViewBookActivity.class);
             Intent intent = new Intent(MainActivity.this, LibraryActivity.class);
             startActivity(intent);
-
+        }
+        else  if(v.getId() == R.id.other){
+            Intent intent = new Intent(MainActivity.this, TestActivity.class);
+            startActivity(intent);
         }
     }
 }

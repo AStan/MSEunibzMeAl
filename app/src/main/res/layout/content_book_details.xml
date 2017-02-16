@@ -29,7 +29,7 @@
         android:layout_height="50dp"
         android:text="Share"
         android:background="@drawable/button_state"
-        android:onClick="onClickShare"
+        android:onClick="onClick"
         android:layout_x="200dp"
         android:layout_y="0dp" />
 

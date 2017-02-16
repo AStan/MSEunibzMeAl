@@ -13,5 +13,6 @@
     <string name="title_activity_book_details">BookDetailsActivity</string>
     <string name="title_activity_apiconnection">APIConnectionActivity</string>
     <string name="title_activity_mensa_cam">MensaCamActivity</string>
+    <string name="title_activity_test">TestActivity</string>
 
 </resources>

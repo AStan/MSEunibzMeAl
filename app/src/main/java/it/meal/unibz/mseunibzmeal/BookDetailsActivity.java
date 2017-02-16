@@ -10,6 +10,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -50,11 +52,12 @@ import static android.R.attr.button;
         public ListView listV;
 
         public TextView tv;
-        public Button backButton;
+        public Button backButton, shareButton;
         //public static String url = "http://api.androidhive.info/contacts/";
         //public String url = "https://api-na.hosted.exlibrisgroup.com/primo/v1/pnxs?vid=UNIBZ&scope=All&q=any,contains, " + searchValue +"&apikey=l7xx53f22519810d4f56a21caceb0fc95de4"; //was static
         ArrayList<HashMap<String, String>> countryList;
 
+        String jsonStr = null;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -75,6 +78,17 @@ import static android.R.attr.button;
                 }
             });
             new FetchBookData().execute();
+
+            shareButton = (Button) findViewById(R.id.shareButton);
+            shareButton.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, jsonStr);
+                    sendIntent.setType("text/plain");
+                    startActivity(Intent.createChooser(sendIntent, "Send using:"));
+                }
+            });
         }
 
         private class FetchBookData extends AsyncTask <Void, Void, String> {
@@ -178,6 +192,7 @@ import static android.R.attr.button;
             @Override
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
+                jsonStr = result;
 
                 if(progressDialog.isShowing())
                     progressDialog.dismiss();
@@ -236,4 +251,26 @@ import static android.R.attr.button;
                 return sb.toString();
             }
         }
+
+        public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate(R.menu.menu_one, menu);
+            return true;
+        }
+
+        public boolean onOptionsItemSelected(MenuItem item) {
+            // Handle presses on the action bar items
+            switch (item.getItemId()) {
+                case R.id.menu_item_share:
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, jsonStr);
+                    sendIntent.setType("text/plain");
+                    startActivity(Intent.createChooser(sendIntent, "Send using:"));
+                    return true;
+
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
+
     }
