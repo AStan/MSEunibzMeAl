@@ -14,7 +14,7 @@
     tools:showIn="@layout/activity_test">
 
     <Button
-        android:id="@+id/shareButton"
+        android:id="@+id/backButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:text="Share"
@@ -23,4 +23,48 @@
         android:layout_x="200dp"
         android:layout_y="0dp" />
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/Mercy"
+        app:srcCompat="@drawable/Mercy"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/Alex"
+        android:layout_alignEnd="@+id/Alex"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="137dp" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/Alex"
+        app:srcCompat="@drawable/alex_350px"
+        android:layout_above="@+id/Mercy"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextAlex"
+        android:text="@string/infoAlex"
+        android:layout_alignBottom="@+id/Alex"
+        android:layout_toRightOf="@+id/Alex"
+        android:layout_toEndOf="@+id/Alex"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="31dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextMercy"
+        android:text="@string/infoMercy"
+        android:layout_marginBottom="29dp"
+        android:layout_alignBottom="@+id/Mercy"
+        android:layout_alignLeft="@+id/TextAlex"
+        android:layout_alignStart="@+id/TextAlex" />
 </RelativeLayout>
