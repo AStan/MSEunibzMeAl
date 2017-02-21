@@ -15,4 +15,6 @@
     <string name="title_activity_mensa_cam">MensaCamActivity</string>
     <string name="title_activity_test">TestActivity</string>
 
+    <string name="infoMercy">I am Mercy. Second year Student of UNIBZ at MSc level.</string>
+    <string name="infoAlex">I am Alex. Second year Student of UNIBZ at MSc level. And also a DJ.</string>
 </resources>

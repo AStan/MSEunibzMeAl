@@ -13,44 +13,32 @@
     tools:context="it.meal.unibz.mseunibzmeal.FreeRoomsActivity"
     tools:showIn="@layout/activity_free_rooms">
 
-    <TextView
-        android:text="Choose Date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView" />
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Go Back"
+        android:background="@drawable/button_state"
+        android:onClick="onClick"/>
 
     <Button
-        android:text="Load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp"
-        android:id="@+id/btnLoad"
+        android:id="@+id/buttonGetDate"
+        android:focusable="false"
+        android:clickable="true"
+        android:text="Hello"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner3"
-        android:layout_marginTop="14dp"
-        android:layout_below="@+id/btnLoad"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp"
-        android:scrollbars = "vertical"
-        android:id="@+id/textViewTest" />
+        android:layout_marginLeft="106dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="54dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/listTimetable">
+    </ListView>
 
 </RelativeLayout>

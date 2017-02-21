@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -58,6 +59,7 @@ import static android.R.attr.button;
         ArrayList<HashMap<String, String>> countryList;
 
         String jsonStr = null;
+        String jsonString;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -67,9 +69,11 @@ import static android.R.attr.button;
 
             listV = (ListView)findViewById(R.id.listBooks);
 
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
             backButton = (Button)findViewById(R.id.backButton);
             backButton.setOnClickListener(new View.OnClickListener() {
-
                 @Override
                 public void onClick(View view) {
                     //Intent intent = new Intent(this, YourMainActivity.class);
@@ -84,7 +88,7 @@ import static android.R.attr.button;
                 public void onClick(View view){
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
-                    sendIntent.putExtra(Intent.EXTRA_TEXT, jsonStr);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, jsonString);
                     sendIntent.setType("text/plain");
                     startActivity(Intent.createChooser(sendIntent, "Send using:"));
                 }
@@ -106,12 +110,10 @@ import static android.R.attr.button;
             protected String doInBackground(Void... params) {
                 Bundle bundle = getIntent().getExtras();
                 String searchValue = bundle.getString("Hello"); //search key
-                //public static String url = "http://api.androidhive.info/contacts/";
-                //public String url = "https://api-na.hosted.exlibrisgroup.com/primo/v1/pnxs?vid=UNIBZ&scope=All&q=any,contains, " + searchValue +"&apikey=l7xx53f22519810d4f56a21caceb0fc95de4"; //was static
 
                 URL myURL = null;
                 try {
-                    myURL = new URL("https://api-na.hosted.exlibrisgroup.com/primo/v1/pnxs?vid=UNIBZ&scope=All&q=any,contains, " + searchValue +"&apikey=l7xx53f22519810d4f56a21caceb0fc95de4");
+                    myURL = new URL("https://api-na.hosted.exlibrisgroup.com/primo/v1/pnxs?vid=UNIBZ&scope=All&q=any,contains," + searchValue +"&apikey=l7xx53f22519810d4f56a21caceb0fc95de4");
                 } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -163,7 +165,9 @@ import static android.R.attr.button;
                             contact.put("availability", availability);
 
                             countryList.add(contact);
-                            Log.e("CountryList", countryList.toString());
+                            //Log.e("CountryList", countryList.toString());
+
+                            jsonString = countryList.toString();
 
                         }
                     } catch (final JSONException e) {
@@ -186,6 +190,8 @@ import static android.R.attr.button;
                     });
                 }
 
+
+
                 return jsonStr;
             }
 
@@ -203,6 +209,7 @@ import static android.R.attr.button;
                 listV.setAdapter(adapter);
 
                 //tv.setTextColor(Color.GREEN);
+
             }
 
         }
@@ -212,13 +219,23 @@ import static android.R.attr.button;
 
             public HttpHandler(){}
             public String makeServiceCall(String reqUrl) {
-                String response = null;
+                StringBuilder response = null;
                 try {
                     URL url = new URL(reqUrl);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("GET");
-                    InputStream in = new BufferedInputStream(conn.getInputStream());
-                    response = convertStreamToString(in);
+                    conn.setRequestProperty("charset", "utf-8");
+                    BufferedReader in = new BufferedReader(
+                            new InputStreamReader(
+                                    conn.getInputStream()));
+                    response = new StringBuilder();
+                    String inputLine;
+
+                    while ((inputLine = in.readLine()) != null)
+                        response.append(inputLine);
+
+                    in.close();
+
                 } catch (MalformedURLException e){
                     e.printStackTrace();
                 } catch (ProtocolException e) {
@@ -228,8 +245,10 @@ import static android.R.attr.button;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                return response;
+
+                return response.toString();
             }
+
             private String convertStreamToString(InputStream is) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is));
                 StringBuilder sb = new StringBuilder();
@@ -259,17 +278,16 @@ import static android.R.attr.button;
 
         public boolean onOptionsItemSelected(MenuItem item) {
             // Handle presses on the action bar items
-            switch (item.getItemId()) {
-                case R.id.menu_item_share:
-                    Intent sendIntent = new Intent();
-                    sendIntent.setAction(Intent.ACTION_SEND);
-                    sendIntent.putExtra(Intent.EXTRA_TEXT, jsonStr);
-                    sendIntent.setType("text/plain");
-                    startActivity(Intent.createChooser(sendIntent, "Send using:"));
-                    return true;
-
-                default:
-                    return super.onOptionsItemSelected(item);
+            int i = item.getItemId();
+            if (i == R.id.menu_item_share) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, jsonStr);
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, "Send using:"));
+                return true;
+            } else {
+                return super.onOptionsItemSelected(item);
             }
         }
 

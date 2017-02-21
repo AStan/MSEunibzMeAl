@@ -52,7 +52,7 @@
     <ImageView
         android:layout_width="127dp"
         android:layout_height="123dp"
-        app:srcCompat="@drawable/web_server"
+        app:srcCompat="@drawable/unibz_logo"
         android:id="@+id/imageView"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"

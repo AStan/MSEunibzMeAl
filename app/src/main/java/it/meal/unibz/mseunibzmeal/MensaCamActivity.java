@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class MensaCamActivity extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class MensaCamActivity extends AppCompatActivity {
         myWebView.setWebViewClient(new WebViewClient());
         myWebView.loadUrl("https://pro.unibz.it/mensawebcam");
 
-
+        Toast.makeText(getApplicationContext(), "Ensure you are connected to the university network.", Toast.LENGTH_LONG).show();
     }
 
 }
