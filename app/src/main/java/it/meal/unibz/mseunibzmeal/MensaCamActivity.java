@@ -20,17 +20,17 @@ public class MensaCamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mensa_cam);
 
-        /*
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://pro.unibz.it/mensawebcam"));
-        startActivity(intent);
-        */
+        Toolbar mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mActionBarToolbar);
+        getSupportActionBar().setTitle("Mensa WebCam");
 
         WebView myWebView = (WebView) findViewById(R.id.mensaCam);
         myWebView.setWebViewClient(new WebViewClient());
+        myWebView.getSettings().setJavaScriptEnabled(true);
+        myWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         myWebView.loadUrl("https://pro.unibz.it/mensawebcam");
 
-        Toast.makeText(getApplicationContext(), "Ensure you are connected to the university network.", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Attention: Works only when connected to the ScientificNetwork.", Toast.LENGTH_LONG).show();
     }
 
 }

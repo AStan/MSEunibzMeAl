@@ -36,23 +36,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         if (v.getId() == R.id.mensaCamButton) {
-            //Intent intent = new Intent(HomePageActivity.this, SignInActivity.class);
             Intent intent = new Intent(MainActivity.this, MensaCamActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.roomsButton) {
-            //Intent intent = new Intent(HomePageActivity.this, RoomsActivity.class);
             Intent intent = new Intent(MainActivity.this, FreeRoomsActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.fywButton) {
-            //Intent intent = new Intent(HomePageActivity.this, FindYourWayActivity.class);
-            Intent intent = new Intent(MainActivity.this, DisplayEventsActivity.class);
+            Intent intent = new Intent(MainActivity.this, NavigateActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.eventsButton) {
-            //Intent intent = new Intent(HomePageActivity.this, TimetableActivity.class);
             Intent intent = new Intent(MainActivity.this, DisplayEventsActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.libraryButton) {
-            //Intent intent = new Intent(HomePageActivity.this, ViewBookActivity.class);
             Intent intent = new Intent(MainActivity.this, LibraryActivity.class);
             startActivity(intent);
         }

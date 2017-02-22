@@ -2,18 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_display_events"
+    android:id="@+id/content_navigate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="it.meal.unibz.mseunibzmeal.DisplayEventsActivity"
-    tools:showIn="@layout/activity_display_events2">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="it.meal.unibz.mseunibzmeal.NavigateActivity"
+    tools:showIn="@layout/activity_navigate">
 
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/events"/>
+        android:id="@+id/navigate"/>
 </RelativeLayout>

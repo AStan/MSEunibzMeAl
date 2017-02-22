@@ -3,49 +3,50 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:id="@+id/availability"
-        android:gravity="center_vertical"
-        android:layout_alignParentEnd="true"
-        android:paddingEnd="10dp"
-        android:layout_alignParentRight="true"
-        android:paddingRight="10dp" />
-
+        <ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:id="@+id/title"
-        android:paddingTop="5dp"
+        android:textColor="#0000ff"
+        android:paddingTop="0dp"
+        android:textIsSelectable="true"
         android:paddingBottom="5dp"
         android:gravity="center_vertical"
         android:layout_alignParentEnd="true"
         android:paddingEnd="10dp"
         android:layout_alignParentRight="true"
         android:paddingRight="10dp" />
+</ScrollView>
 
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="90dp"
         android:id="@+id/creator"
+        android:textColor="#FE2EF7"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
+        android:textIsSelectable="true"
         android:gravity="center_vertical"
         android:layout_alignParentEnd="true"
         android:paddingEnd="10dp"
         android:layout_alignParentRight="true"
         android:paddingRight="10dp" />
+        </ScrollView>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="20dp"
         android:id="@+id/date"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
         android:gravity="center_vertical"
+        android:textIsSelectable="true"
         android:layout_alignParentEnd="true"
         android:paddingEnd="10dp"
         android:layout_alignParentRight="true"
@@ -53,13 +54,31 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="20dp"
         android:id="@+id/type"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:textColor="#088A29"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:textIsSelectable="true"
         android:gravity="center_vertical"
         android:layout_alignParentEnd="true"
         android:paddingEnd="10dp"
         android:layout_alignParentRight="true"
         android:paddingRight="10dp" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/availability"
+        android:gravity="center_vertical"
+        android:textIsSelectable="true"
+        android:layout_alignParentEnd="true"
+        android:paddingEnd="10dp"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp" /></ScrollView>
 </LinearLayout>

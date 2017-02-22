@@ -29,7 +29,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Search for Books"
+        android:hint="Search for Books"
+        android:textColorHint="#0000ff"
+        android:selectAllOnFocus="true"
         android:ems="10"
         android:layout_below="@+id/libraryView"
         android:layout_alignLeft="@+id/libraryView"
@@ -42,7 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Advanced Search"
+        android:text="Powered by UNIBZ Library"
         android:layout_below="@+id/searchBooks"
         android:layout_alignLeft="@+id/searchBooks"
         android:layout_alignStart="@+id/searchBooks"
@@ -52,7 +54,7 @@
     <ImageView
         android:layout_width="127dp"
         android:layout_height="123dp"
-        app:srcCompat="@drawable/unibz_logo"
+        app:srcCompat="@drawable/unibz_logo_two"
         android:id="@+id/imageView"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -78,6 +80,5 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:layout_x="200dp"
         android:layout_y="65dp" />
-
 
 </AbsoluteLayout>
