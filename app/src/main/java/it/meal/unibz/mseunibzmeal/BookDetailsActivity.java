@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,9 +53,8 @@ import static android.R.attr.button;
         private ProgressDialog progressDialog;
         public ListView listV;
 
-        public TextView tv;
+        public TextView tv, title;
         public Button backButton, shareButton;
-        //public static String url = "http://api.androidhive.info/contacts/";
         //public String url = "https://api-na.hosted.exlibrisgroup.com/primo/v1/pnxs?vid=UNIBZ&scope=All&q=any,contains, " + searchValue +"&apikey=l7xx53f22519810d4f56a21caceb0fc95de4"; //was static
         ArrayList<HashMap<String, String>> countryList;
 
@@ -64,6 +64,10 @@ import static android.R.attr.button;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_book_details);
+
+            Toolbar mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(mActionBarToolbar);
+            getSupportActionBar().setTitle("Library Search Results");
 
             countryList = new ArrayList<>();
 
@@ -93,6 +97,7 @@ import static android.R.attr.button;
                     startActivity(Intent.createChooser(sendIntent, "Send using:"));
                 }
             });
+
         }
 
         private class FetchBookData extends AsyncTask <Void, Void, String> {
@@ -143,16 +148,25 @@ import static android.R.attr.button;
                             String creator;
                             if (c.has("creator")){
                                 creator = "CREATOR: " + c.getString("creator");
+
                             } else {
                                 creator = "CREATOR: " +  "Unspecified";
                             }
 
                             String title = "TITLE: " + c.getString("title");
-                            String type = "TYPE: " + c.getString("@TYPE");
+
+                            String type;
+                            if(c.has("@TYPE")) {
+                                type = "TYPE: " + c.getString("@TYPE");
+                            } else {
+                                type = "TYPE: " + "Unspecified";
+                            }
+
+                            JSONObject delivery = c.getJSONObject("delivery");
 
                             String availability;
-                            if (c.has("availability")) {
-                                availability = "AVAILABILITY: " + c.getString("availability");
+                            if (delivery.has("availability")) {
+                                availability = "AVAILABILITY: " + delivery.getString("availability");
                             } else {
                                 availability = "AVAILABILITY: " + "Unspecified";
                             }
@@ -203,13 +217,20 @@ import static android.R.attr.button;
                 if(progressDialog.isShowing())
                     progressDialog.dismiss();
 
-                //ListAdapter adapter = new SimpleAdapter(MainActivity.this, countryList, R.layout.cell, new String[]{"name", "email"}, new int[]{R.id.creator, R.id.title});
-                ListAdapter adapter = new SimpleAdapter(BookDetailsActivity.this, countryList, R.layout.cell, new String[]{"title", "creator", "date", "type"}, new int[]{R.id.title, R.id.creator, R.id.date, R.id.type});
+                ListAdapter adapter = new SimpleAdapter(BookDetailsActivity.this, countryList, R.layout.cell, new String[]{"title", "creator", "date", "availability", "@TYPE"}, new int[]{R.id.title, R.id.creator, R.id.date, R.id.availability, R.id.type});
 
                 listV.setAdapter(adapter);
 
-                //tv.setTextColor(Color.GREEN);
+                listV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        String s = listV.getItemAtPosition(i).toString();
+
+                        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+                        //adapter.dismiss();
+                    }
+                });
             }
 
         }
